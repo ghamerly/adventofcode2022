@@ -1,8 +1,12 @@
 #!/bin/bash
 
-# Guess the day based on UTC date (hackish but should work for programming in
-# the moment)
-DAY_PADDED=$(date -u "+%d")
+if [ $# -ne 0 ]; then
+    DAY_PADDED=$1
+else
+    # Guess the day based on UTC date (hackish but should work for programming in
+    # the moment)
+    DAY_PADDED=$(date -u "+%d")
+fi
 
 if [ -d $DAY_PADDED ]; then
     echo "directory $DAY_PADDED already exists; stopping"
