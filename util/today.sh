@@ -52,7 +52,7 @@ def main():
     file = regular_input if len(sys.argv) <= 1 else sys.argv[1]
     print(f'using input: {file}')
     with open(file) as f:
-        lines = list(map(str.strip, f))
+        lines = [line.rstrip('\n') for line in f]
 
     data = list(map(mogrify, lines))
 
