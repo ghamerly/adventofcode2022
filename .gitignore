@@ -1,0 +1,3 @@
+*.json
+cookies.txt
+util/get_leaderboards.sh

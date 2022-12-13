@@ -23,7 +23,9 @@ INPUT=$DAY_PADDED/$DAY_UNPADDED.in
 
 # create the directory and the (blank) input file (paste contents manually)
 mkdir $DIRNAME
-touch $INPUT
+script_path=$(realpath $(dirname $BASH_SOURCE[0]))
+cookie_path="$script_path/../cookies.txt"
+curl -L -b $cookie_path -o $INPUT https://adventofcode.com/2022/day/$DAY_UNPADDED/input
 
 # use curl to grab the title of today's challenge to put it in the program
 TITLE=$(curl https://adventofcode.com/2022/day/$DAY_UNPADDED | \
